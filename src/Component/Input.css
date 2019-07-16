@@ -1,0 +1,71 @@
+ul li{
+    font-family: arial, sans-serif;
+    display:block;
+    padding:10px 12px;
+
+}
+
+#header{
+
+    flexDirection: 'row';
+    font-family: Century, sans-serif;
+    font-weight: lighter;
+    font-size: xx-large ;
+    width: 500px;
+    margin:auto;
+}
+
+
+label{
+
+    color: darkslategray;
+}
+
+input{
+
+    background-color: whitesmoke;
+    border-radius: 8px;
+    padding: 5px;
+
+}
+input:hover{
+    border-color: blue;
+
+
+}
+
+button{
+    font-family: arial, sans-serif;
+    background-color:whitesmoke;
+    width: 88px;
+    height: 26px;
+    float: left;
+    display: block;
+
+}
+
+
+#deleteButton{
+    position: absolute;
+    top:80px;
+    bottom: 50px;
+    right:100px;
+    float: right;
+
+
+}
+
+#runButton{
+
+    position: absolute;
+    left: 90px;
+    background-color:lavender;
+
+}
+#runButton:hover{
+    color:hotpink;
+}
+
+
+
+

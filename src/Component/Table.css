@@ -1,0 +1,42 @@
+#myTable {
+
+    font-family: arial, sans-serif;
+    position: absolute;
+    top: 120px;
+    right: 100px;
+    float: right;
+
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+#tablename{
+
+    font-family: arial, sans-serif;
+
+}
+#firstrow{
+
+    background-color: lavender;
+}
+
+
+#infoid:visited {
+    color: green;
+}
+#deleteid:visited{
+    color:green;
+}
+#infoid:hover{
+    color: hotpink;
+}
+#deleteid:hover{
+    color: hotpink;
+}
