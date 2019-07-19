@@ -7,7 +7,7 @@ ul li{
 
 #header{
 
-    flexDirection: 'row';
+    flex-direction: 'row';
     font-family: Century, sans-serif;
     font-weight: lighter;
     font-size: xx-large ;

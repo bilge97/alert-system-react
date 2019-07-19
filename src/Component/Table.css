@@ -2,9 +2,11 @@
 
     font-family: arial, sans-serif;
     position: absolute;
-    top: 120px;
-    right: 100px;
+    right: 20px;
     float: right;
+    
+    height: 200px;
+
 
 }
 
@@ -40,3 +42,16 @@ tr:nth-child(even) {
 #deleteid:hover{
     color: hotpink;
 }
+
+#divinid{
+    position: relative;
+    bottom:410px;
+    left:70px;
+    height: 400px;
+    width: 1200px;
+    overflow: auto;
+    }
+#table-wrapper-scroll-y {
+    display: block;
+}
+

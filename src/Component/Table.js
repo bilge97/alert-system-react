@@ -1,7 +1,8 @@
 import React from "react";
 import axios from "axios";
 import {BrowserRouter, Route, Link} from "react-router-dom";
-
+import Paging from "./Paging";
+import {BootstrapTable, TableHeaderColumn} from "react-bootstrap-table";
 
 class Table extends React.Component {
 
@@ -42,10 +43,13 @@ class Table extends React.Component {
                         <ul id="deleteNavigate"><Link id="deleteid" to={{pathname: '/' + ValueInfo.id}}>delete</Link></ul>
 
                 </tr>
+                
 
             );
         });
 
+        
+    
         let valueListTable = (
 
             <table id="myTable" border="1">
@@ -58,15 +62,16 @@ class Table extends React.Component {
                     <th id="firstrow">Period</th>
                 </tr>
                 </thead>
+                
 
-                <tbody>
+                <tbody className="table table-bordered table-striped mb-0">
                     {ValueComponentsMap}
                 </tbody>
             </table>
         );
-
+        
         return (
-            <div>
+            <div id = "divinid" className="table-wrapper-scroll-y my-custom-scrollbar">
                 {valueListTable}
             </div>
         );
