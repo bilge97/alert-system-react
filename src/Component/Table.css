@@ -6,7 +6,7 @@
     float: right;
     
     height: 200px;
-
+    overflow: auto;
 
 }
 
@@ -43,7 +43,7 @@ tr:nth-child(even) {
     color: hotpink;
 }
 
-#divinid{
+#maindiv{
     position: relative;
     bottom:410px;
     left:70px;
@@ -51,7 +51,29 @@ tr:nth-child(even) {
     width: 1200px;
     overflow: auto;
     }
-#table-wrapper-scroll-y {
-    display: block;
-}
+
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #888; 
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: pink; 
+  }
+#changeId{
+    font-family: arial, sans-serif;
+    position: relative;
+    top:10px;
+    right: 20px;
+    float: right;
+  }
+  
+  
 

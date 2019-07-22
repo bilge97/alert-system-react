@@ -7,7 +7,7 @@ import {BootstrapTable, TableHeaderColumn} from "react-bootstrap-table";
 class Table extends React.Component {
 
     state = {
-        values: []
+        values: [] , termName:''
     };
 
     componentDidMount() {
@@ -18,6 +18,8 @@ class Table extends React.Component {
             let newValues = {values: result.data};
             this.setState(newValues);
         });
+
+        
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
@@ -27,20 +29,35 @@ class Table extends React.Component {
             this.setState(newValues);
         });
 
+    
+
     }
 
+    closeInput(elm) {
+        var td = elm.parentNode;
+        var value = elm.value;
+        td.removeChild(elm);
+        td.innerHTML = value;
+    }
+
+
+
     render() {
+        
+
         let ValueComponentsMap = this.state.values.map((ValueInfo, ValueIndex) => {
             return (
 
-                <tr key={ValueIndex}>
-                    <td id="tdName">{ValueInfo.name}</td>
+                <tr id ="mainTr"  key={ValueIndex}>
+                    <td id="tdName" onDoubleClick={this.onDoubleClick}>{ValueInfo.name}</td>
                     <td id="tdUrl">{ValueInfo.url}</td>
                     <td id="tdMethod">{ValueInfo.method}</td>
                     <td id="tdPeriod">{ValueInfo.period}</td>
 
                         <ul id="infoNavigate"><Link id="infoid" to={{pathname: '/pageinfo/' + ValueInfo.id}}>info</Link></ul>
                         <ul id="deleteNavigate"><Link id="deleteid" to={{pathname: '/' + ValueInfo.id}}>delete</Link></ul>
+                        <ul id="changeNavigate"><Link id="changeid" to={{pathname: '/edit/' + ValueInfo.id}}>edit</Link></ul>
+                        
 
                 </tr>
                 
@@ -54,7 +71,7 @@ class Table extends React.Component {
 
             <table id="myTable" border="1">
 
-                <thead>
+                <thead id="mainHead">
                 <tr>
                     <th id="firstrow">Name</th>
                     <th id="firstrow">Url</th>
@@ -64,14 +81,14 @@ class Table extends React.Component {
                 </thead>
                 
 
-                <tbody className="table table-bordered table-striped mb-0">
+                <tbody id="mainBody">
                     {ValueComponentsMap}
                 </tbody>
             </table>
         );
         
         return (
-            <div id = "divinid" className="table-wrapper-scroll-y my-custom-scrollbar">
+            <div id = "maindiv">
                 {valueListTable}
             </div>
         );

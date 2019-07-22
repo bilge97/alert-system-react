@@ -24,7 +24,7 @@ class SearchBar extends React.Component {
 
     onInputClick(event) {
 
-        event.target.value = "";
+        //event.target.value = "";
 
     }
 
@@ -36,18 +36,11 @@ class SearchBar extends React.Component {
             method: this.state.termMethod,
             period: this.state.termPeriod,
 
-
         }
         axios.post('http://localhost:8081/alert', alert).then((response) => {
 
             console.log(response.data);
         });
-
-
-        console.log(this.state.termName);
-        console.log(this.state.termUrl);
-        console.log(this.state.termMethod);
-        console.log(this.state.termPeriod);
 
     }
 //td yan yana tr altalta
@@ -97,7 +90,7 @@ class SearchBar extends React.Component {
                             <li>
                                 <select className="form-control" id="exampleFormControlSelect1"
                                         onChange={e => this.setState({termMethod: e.target.value})}>
-                                    <option></option>
+                                    <option placeholder= 'choose..'></option>
                                     <option>GET</option>
                                     <option>PUT</option>
                                     <option>POST</option>
@@ -121,13 +114,13 @@ class SearchBar extends React.Component {
                             </li>
                         </ul>
 
-                        <button id='runButton' >
+                        <button id='runButton'>   
                             RUN
-
                         </button>
 
-                        <br/>
+                        
 
+                        <br/>
 
                         <Table/>
 

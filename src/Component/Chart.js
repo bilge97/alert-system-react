@@ -51,7 +51,7 @@ class Chart extends Component {
             let newValues = {values: result.data};
             this.setState(newValues);
             let mp = result.data.response.map(item => {
-                if (item.responsecode == 200) return 1; else return 0; 
+                if (item.responsecode == 200) return 1; else return 0;
             });//arraydi o yüzden yaptım
             this.setState({resp: mp});
     
@@ -60,7 +60,7 @@ class Chart extends Component {
 
     updateChart() {
         var i = this.state.resp.length;
-        yVal =this.state.resp[i-1];//son 10 tane göster
+        yVal =this.state.resp[i-1];
         dps.push({x: xVal,y: yVal});
         xVal=xVal+this.state.values.period;
 
@@ -85,7 +85,7 @@ class Chart extends Component {
         return (
             <div>
                 <CanvasJSChart  options = {options}
-                               onRef={ref => this.chart = ref}//???
+                               onRef={ref => this.chart = ref}
                 />
                 {/*You can get reference to the chart instance as shown above using onRef. This allows you to access all chart properties and methods*/}
             </div>
