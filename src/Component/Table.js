@@ -7,17 +7,25 @@ import {BootstrapTable, TableHeaderColumn} from "react-bootstrap-table";
 class Table extends React.Component {
 
     state = {
-        values: [] , termName:''
+        values: [] , termName:'' , valuesLogin:[] , pageId:0
     };
 
+    constructor(props){
+        super(props);
+        
+
+    }
+
     componentDidMount() {
-
-
+     
+        
         axios.get("http://localhost:8081/alerts").then((result) => {
             console.log(result.data)
             let newValues = {values: result.data};
             this.setState(newValues);
         });
+        
+          
 
         
     }
@@ -33,19 +41,14 @@ class Table extends React.Component {
 
     }
 
-    closeInput(elm) {
-        var td = elm.parentNode;
-        var value = elm.value;
-        td.removeChild(elm);
-        td.innerHTML = value;
-    }
-
 
 
     render() {
         
-
+       
         let ValueComponentsMap = this.state.values.map((ValueInfo, ValueIndex) => {
+           
+           if(ValueInfo.login_id==this.props.id){
             return (
 
                 <tr id ="mainTr"  key={ValueIndex}>
@@ -62,7 +65,8 @@ class Table extends React.Component {
                 </tr>
                 
 
-            );
+            );}
+            
         });
 
         

@@ -6,38 +6,44 @@ import Table from "./Table";
 import Chart from './Chart';
 
 
-class SearchBar extends React.Component {
+class Input extends React.Component {
+
+    
+
+    state = {values: [] , valuesLogin:[]};
+    state = {termName: '', termUrl: '', termMethod: '', termPeriod: '', termId: '' , pageId:'' };
 
     constructor(props) {
         super(props);
-
+        const url = window.location.pathname; // u can use regex or whatever to get just the id
+        this.state.pageId = url.substring(url.lastIndexOf('/') + 1);
+        
+      
+        
+       
     }
-
-    state = {values: []};
-    state = {termName: '', termUrl: '', termMethod: '', termPeriod: '', termId: ''};
-
 
     onInputChange(event) {
         // console.log(event.target.value);
-
     }
 
     onInputClick(event) {
-
         //event.target.value = "";
-
     }
 
     onFormSubmit = event => {
         event.preventDefault();
+        const id = this.props.match.params.id;
+    
         const alert = {
             name: this.state.termName,
             url: this.state.termUrl,
             method: this.state.termMethod,
             period: this.state.termPeriod,
-
+            login_id:id
         }
-        axios.post('http://localhost:8081/alert', alert).then((response) => {
+
+        axios.post('http://localhost:8081/alert', alert ).then((response) => {
 
             console.log(response.data);
         });
@@ -50,6 +56,7 @@ class SearchBar extends React.Component {
     render() {
 
         return (
+          
 
             <div id="mainDiv">
                 <h1 id="header">ALERT SYSTEM</h1>
@@ -112,21 +119,21 @@ class SearchBar extends React.Component {
                                     onChange={e => this.setState({termPeriod: e.target.value})}
                                 />
                             </li>
+                            
                         </ul>
 
                         <button id='runButton'>   
                             RUN
                         </button>
 
-                        
-
                         <br/>
 
-                        <Table/>
-
+                        <Table id={this.state.pageId}/>
 
                     </div>
+
                 </form>
+                
             </div>
 
         );
@@ -135,4 +142,4 @@ class SearchBar extends React.Component {
 }
 
 
-export default SearchBar;
+export default Input;

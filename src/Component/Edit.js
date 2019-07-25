@@ -13,7 +13,7 @@ class Change extends React.Component{
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
       }
-      
+
       componentDidMount() {
         const id = this.props.match.params.id;//id yi aldım
         //console.log(this.props.match.params);
@@ -63,6 +63,7 @@ class Change extends React.Component{
         var urlForFunction = this.state.values.url;
         var methodForFunction=this.state.values.method;
         var periodForFunction=this.state.values.period;
+        var long_idForFunction= this.state.values.long_id;
         const id=this.props.match.params.id;
         
 
@@ -71,30 +72,33 @@ class Change extends React.Component{
                  name:document.getElementById('inpId').value,
                  url: urlForFunction,
                  method: methodForFunction,
-                 period: periodForFunction
+                 period: periodForFunction,
+                 long_id: long_idForFunction
              } 
              const alertUrl ={
                 name: nameForFunction,
                 url: document.getElementById('inpId').value,
                 method: methodForFunction,
-                period: periodForFunction
+                period: periodForFunction,
+                long_id: long_idForFunction
             } 
             const alertMethod ={
                 name:nameForFunction,
                 url: urlForFunction,
                 method: document.getElementById('inpId').value,
-                period: periodForFunction
+                period: periodForFunction,
+                long_id: long_idForFunction
             } 
             const alertPeriod ={
                 name: nameForFunction,
                 url: urlForFunction,
                 method: methodForFunction,
-                period: document.getElementById('inpId').value
+                period: document.getElementById('inpId').value,
+                long_id: long_idForFunction
             } 
 
             if(e.keyCode==13 && typeOfChoose=="Name" ){
                 axios.put(`http://localhost:8081/alert/${id}`, alertName).then((response) => {
-
                  console.log(response.data);
                 });
                 alert(typeOfChoose+" edited from "+nameForFunction+" to "+document.getElementById('inpId').value);
@@ -103,7 +107,6 @@ class Change extends React.Component{
 
             if(e.keyCode==13 && typeOfChoose=="Url" ){
                 axios.put(`http://localhost:8081/alert/${id}`, alertUrl).then((response) => {
-
                  console.log(response.data);
                 });
 
@@ -113,7 +116,6 @@ class Change extends React.Component{
 
             if(e.keyCode==13 && typeOfChoose=="Method" ){
                 axios.put(`http://localhost:8081/alert/${id}`, alertMethod).then((response) => {
-
                  console.log(response.data);
                 });
 
@@ -123,7 +125,6 @@ class Change extends React.Component{
 
             if(e.keyCode==13 && typeOfChoose=="Period" ){
                 axios.put(`http://localhost:8081/alert/${id}`, alertPeriod).then((response) => {
-
                  console.log(response.data);
                 });
 
@@ -154,8 +155,7 @@ class Change extends React.Component{
                     <option value="Method">Method</option>
                     <option value="Period">Period</option>
                 </select>
-            
-                </h3>
+            </h3>
                 
         <input id="chooseId" type="submit" value="Edit" />
         </fieldset>

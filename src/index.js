@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import './Component/Input.css'
 import './Component/Table.css'
+import './Component/Login.css'
 
 
 import * as serviceWorker from './serviceWorker';
