@@ -15,10 +15,10 @@ class Input extends React.Component {
 
     constructor(props) {
         super(props);
-        const url = window.location.pathname; // u can use regex or whatever to get just the id
+        const url = window.location.pathname;
         this.state.pageId = url.substring(url.lastIndexOf('/') + 1);
+
         
-      
         
        
     }

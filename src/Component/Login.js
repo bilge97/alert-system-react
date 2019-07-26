@@ -30,37 +30,13 @@ class Login extends React.Component {
   }
 
   
-changePage(idlogin , valuesAlert){
+changePage(idlogin){
 
   //alert(valuesAlert.length);
   var myLink ="/home/"+idlogin;
   window.location.pathname=myLink;
         
-     let counter = 0;
-     for(counter=0 ; counter<valuesAlert.length ; counter++)
-  {
-
-  
-    const editLogin = {
-      id:valuesAlert[counter].id,
-      name:valuesAlert[counter].name,
-      url:valuesAlert[counter].url,
-      method:valuesAlert[counter].method,
-      period:valuesAlert[counter].period
-  }
-  //alert(editLogin.name);
- 
-
-  axios.put(`http://localhost:8081/alert/${editLogin.id}` , editLogin).then((response) =>{
-    
-    console.log(response.data);
-  
-  });
-
-
- }
- 
- 
+   
 }
 
 handleClick(flag){
@@ -73,7 +49,7 @@ handleClick(flag){
   
   let count = 0;
   
-  flag=true;
+  
   this.setState(newValues);
   
   for(count=0 ; count<this.state.values.length ; count++)
@@ -81,13 +57,11 @@ handleClick(flag){
     
       if(this.state.values[count].username == this.state.termUsername 
             && this.state.values[count].password == this.state.termPassword
-            && flag == true)
+            )
       {
         
-        this.changePage(this.state.values[count].id , this.state.valuesAlert);
+        this.changePage(this.state.values[count].id);
        
-       // this.state.flagchange =true;
-        this.state.id =this.state.values[count].id;
         
       }
   }
